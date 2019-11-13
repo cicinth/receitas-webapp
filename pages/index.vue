@@ -19,22 +19,29 @@
         @edit="showDialog = true" 
         @removeRecipe="removeRecipe" 
        />
+     <dialog-default 
+        v-model="showDialog">
+        <edit-recipe
+          :id="recipe.id"
+          :name="recipe.name"
+          :recipe="recipe.recipe" 
+          @close="showDialog = false"
+          @editRecipe="editRecipe" />
+      </dialog-default> 
       </v-flex> 
     <nuxt/>
-      <dialog-default 
-        v-model="showDialog">
-        <register-pet 
-          @close="showDialog = false"
-          @registerRecipe="registerRecipe" />
-      </dialog-default> 
-    </v-layout>
+    
+    </v-layout> 
   </v-container>
 </template>
 
 <script>
 import { APIRecipe } from '@/API/endpoints';
-
+import EditRecipe from '@/components/EditRecipe';
 export default {
+  components: {
+    EditRecipe
+  },
   data: () => ({
     showDialog: false,
     recipes: [
@@ -52,11 +59,22 @@ export default {
     this.loadPage();
   },
   methods: {
-        async registerRecipe(recipe) {
+    async registerRecipe(recipe) {
       await APIRecipe.registerRecipe(recipe)
       .then(res => {
         this.showDialog = false;
         this.$nuxt.$emit('setNewPet', recipe);
+      })
+      .catch(error => {
+
+      })
+    },
+    async editRecipe(recipe) {
+      await APIRecipe.updateRecipe(recipe.id,recipe)
+      .then(res => { 
+        alert('editado com sucesso'),
+        this.loadPage();
+        this.showDialog = false; 
       })
       .catch(error => {
 
