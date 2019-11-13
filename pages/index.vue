@@ -12,7 +12,7 @@
         xs4 
         md3
         py-4>
-        <card-pet 
+        <card-recipe
         :id="recipe.id"
         :name="recipe.name"
         :recipe="recipe.recipe" 
@@ -45,11 +45,6 @@ export default {
   data: () => ({
     showDialog: false,
     recipes: [
-      {
-        name: 'Frango',
-        recipe: 'dhajgjf',
-      
-      }
     ]
   }), 
   mounted() {
@@ -72,7 +67,7 @@ export default {
     async editRecipe(recipe) {
       await APIRecipe.updateRecipe(recipe.id,recipe)
       .then(res => { 
-        alert('editado com sucesso'),
+        alert('Editado com sucesso'),
         this.loadPage();
         this.showDialog = false; 
       })
@@ -82,18 +77,16 @@ export default {
     },
     async loadPage() {
       this.recipes = await this.getRecipes();
-      //console.log('teste', this.pets);
     },
     getRecipes() {
       return APIRecipe.getRecipe();
     },
     async removeRecipe(recipe) {
       
-      await APIRecipe.deleteRecipe(recipe)
+    await APIRecipe.deleteRecipe(recipe)
       .then(res => {
         alert('removido com sucesso')
         this.loadPage()
-        //this.$nuxt.$emit('setNewPet', recipe);
       })
       .catch(error => {
 

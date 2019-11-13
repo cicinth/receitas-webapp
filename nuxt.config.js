@@ -34,7 +34,7 @@ export default {
   */
   plugins: [
     {
-      src: '~/plugins/pet-components',
+      src: '~/plugins/recipe-components',
       ssr: false
     }
   ],

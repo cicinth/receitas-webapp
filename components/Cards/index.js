@@ -1,5 +1,5 @@
-import CardsPet from './CardsPet';
+import CardsRecipe from './CardsRecipe';
 
 export {
-  CardsPet
+  CardsRecipe
 }

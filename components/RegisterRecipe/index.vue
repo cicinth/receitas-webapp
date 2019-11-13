@@ -1,14 +1,14 @@
 <template>
   <v-card class="pa-4">
-    <h3 class="px-2 align-center-text font-weight-regular">Novo Receita</h3>
-    <h4 class="px-2 font-weight-regular mb-2">Informações do Receira</h4>
+    <h3 class="px-2">Novo Receita</h3>
+    <h4 class="px-2">Informações do Receira</h4>
     <v-form>
       <v-layout
         row
         wrap>
         <v-flex xs12 px-2>
           <v-text-field
-            label="Nome do Animal"
+            label="Nome da receita"
             v-model="form.name"
             outline />
         </v-flex>

@@ -1,11 +1,11 @@
 <template>
-  <v-app class="pet-app">
+  <v-app class="recipe-app">
     <toolbar @addRecipe="showDialog = true" />
     <v-content class="page">
       <nuxt/>
       <dialog-default 
         v-model="showDialog">
-        <register-pet 
+        <register-recipe
           @close="showDialog = false"
           @registerRecipe="registerRecipe" />
       </dialog-default> 
@@ -15,16 +15,14 @@
 
 <script>
 import { Toolbar } from  '@/components/Partials';
-import RegisterPet from '@/components/RegisterPet';
-import { FooterFirst, Banner } from '@/components/Main';
+import RegisterRecipe from '@/components/RegisterRecipe';
 
 import { APIRecipe } from '@/API/endpoints';
 export default {
   components: {
     Toolbar,
-    RegisterPet,
-    FooterFirst,
-    Banner
+    RegisterRecipe,
+  
   },
   data: () => ({
     showDialog: false
