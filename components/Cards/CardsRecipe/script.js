@@ -15,7 +15,6 @@ export default {
       default: '',
       required: false
     },
-
   },
   methods: {
     remove(recipe) {

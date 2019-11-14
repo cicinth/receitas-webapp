@@ -8,9 +8,11 @@
         wrap>
         <v-flex xs12 px-2>
           <v-text-field
-            label="Nome do Animal"
+            label="Nome da receita"
             v-model="name"
             outline />
+        </v-flex>
+
         </v-flex>
         <v-flex xs12 px-2>
           <v-textarea

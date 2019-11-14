@@ -22,7 +22,7 @@ export default {
       const form =  {
         id: idRecipe,
         name: newNameRecipe,
-        recipe: newRecipe
+        recipe: newRecipe,
       }
       this.$emit('editRecipe', form);
     }

@@ -10,11 +10,12 @@
         v-for="(recipe, index) in recipes"
         :key="index"
         xs4 
-        md3
-        py-4>
+        md4
+        py-5>
         <card-recipe
         :id="recipe.id"
         :name="recipe.name"
+        :image="recipe.image"
         :recipe="recipe.recipe" 
         @edit="showDialog = true" 
         @removeRecipe="removeRecipe" 
@@ -25,6 +26,7 @@
           :id="recipe.id"
           :name="recipe.name"
           :recipe="recipe.recipe" 
+          :image="recipe.image"
           @close="showDialog = false"
           @editRecipe="editRecipe" />
       </dialog-default> 
@@ -54,6 +56,7 @@ export default {
     this.loadPage();
   },
   methods: {
+
     async editRecipe(recipe) {
       await APIRecipe.updateRecipe(recipe.id,recipe)
       .then(res => { 
