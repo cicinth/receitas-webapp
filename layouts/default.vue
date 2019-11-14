@@ -32,7 +32,7 @@ export default {
       await APIRecipe.registerRecipe(recipe)
       .then(res => {
         this.showDialog = false;
-        this.$nuxt.$emit('setNewPet', recipe);
+        this.$nuxt.$emit('setNewRecipe', recipe);
       })
       .catch(error => {
 

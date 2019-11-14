@@ -48,22 +48,12 @@ export default {
     ]
   }), 
   mounted() {
-    this.$nuxt.$on('setNewPet', item => {
-      this.recipes.push(item);
+    this.$nuxt.$on('setNewRecipe', item => {
+      this.loadPage();
     });
     this.loadPage();
   },
   methods: {
-    async registerRecipe(recipe) {
-      await APIRecipe.registerRecipe(recipe)
-      .then(res => {
-        this.showDialog = false;
-        this.$nuxt.$emit('setNewPet', recipe);
-      })
-      .catch(error => {
-
-      })
-    },
     async editRecipe(recipe) {
       await APIRecipe.updateRecipe(recipe.id,recipe)
       .then(res => { 
